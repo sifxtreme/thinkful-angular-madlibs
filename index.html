@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+	<title>Automate This!</title>
+	<style type="text/css">
+	body, input, label {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight: 300;
+	}
+	body {
+		margin: 0;
+	}
+	.container {
+		background-color: #fff;
+		margin: 50px auto;
+		border: 3px solid #222;
+		max-width: 980px;
+	}
+
+	.smiley {
+		float:left;
+		padding: 0px 30px;
+		border: 3px solid #222;
+		width: 30%;
+		min-height: 220px;
+		line-height: 200px;
+		box-sizing: border-box;
+	}
+	.smiley img {
+		padding-top: 5px;
+		margin: 0 auto;
+		display: block;
+		vertical-align: middle;
+	}
+	.title {
+		float: left;
+		width: 70%;
+		border: 3px solid #222;
+		box-sizing: border-box;
+		min-height: 220px;
+	}
+	.title img {
+		padding-top: 20px;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+	}
+
+	h1 { 
+		text-align: center; 
+		font-size: 72px; 
+		padding: 0; 
+		margin: 0; 
+		margin-top: -20px; 
+		font-weight: normal
+	}
+
+	.inputSec {
+		padding: 25px;
+		margin-bottom: 25px;
+	}
+	.inputs div {
+		width: 33%;
+		box-sizing: border-box;
+		float: left;
+	}
+	.inputs div input {
+		margin: 10px; 
+		padding: 5px;
+	}
+	h2 { 
+		font-weight: normal; 
+		font-size: 30px;
+	}
+
+	input { 
+		height: 20px; 
+		font-size: 18px
+	}
+
+	.paragraphSec {
+		padding: 40px;
+		font-size: 18px;
+		margin-top: 25px;
+		border-top: 3px solid #222;
+	}
+
+	.paragraphSec p {
+		max-width: 480px;
+		margin: 0 auto;
+	}
+
+	.paragraphSec span{
+		text-decoration: underline;
+	}
+	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+	<div class="header">
+		<div class="smiley"><img src="mad-lib-happy-face.png"></div>
+		<div class="title">
+			<img src="ng-mad-libs-logo.png">
+			<h1>Automate This!</h1>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+
+	<div class="inputSec">
+		<h2>Provide the following words:</h2>
+		<div class="inputs">
+			<div>
+				<input placeholder="male name" ng-model="male_name" ng-init="male_name = 'male name'"/>
+				<input placeholder="Job Title" ng-model="job_title" ng-init="job_title = 'job title'"/>
+				<input placeholder="Tedious task" ng-model="tedious_task" ng-init="tedious_task = 'tedious task'"/>
+			</div>
+			<div>
+				<input placeholder="Dirty task" ng-model="dirty_task" ng-init="dirty_task = 'dirty task'"/>
+				<input placeholder="Celebrity" ng-model="celebrity" ng-init="celebrity =  'celebrity'"/>
+				<input placeholder="Useless Skill" ng-model="useless_skill" ng-init="useless_skill = 'useless skill'"/>
+			</div>
+			<div>
+				<input placeholder="Obnoxious celebrity" ng-model="obnoxious_celebrity" ng-init="obnoxious_celebrity = 'obnoxious celebrity'"/>
+				<input placeholder="Huge number" ng-model="huge_number" ng-init="huge_number = 'huge number'"/>
+				<input placeholder="Adjective" ng-model="adjective" ng-init="adjective =  'adjective'"/>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+
+	<div class="paragraphSec">
+		<p><span>{{male_name}}</span> was a <span>{{job_title}}</span> who loved technology. Although he loved parts of her job, he absolutely hated  <span>{{tedious_task}}</span> and <span>{{dirty_task}}</span>. So, {{male_name}} met with his life mentor <span>{{celebrity}}</span> who told him to learn how to <span>{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{useless_skill}}</span> so he studied programming instead.</p>
+		 
+		<p>What a great decision! With his new skills, <span>{{male_name}}</span> built a(n) <span>{{adjective}}</span> robot named <span>{{obnoxious_celebrity}}</span> that not only loved <span>{{dirty_task}}</span> but did it <span>{{huge_number}}</span> faster.</p>
+	</div>
+
+</div>
+
+
+
+</body>
+</html>

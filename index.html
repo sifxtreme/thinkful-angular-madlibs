@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="madlibsApp">
 <head>
 	<title>Automate This!</title>
 	<style type="text/css">
-	body, input, label {
+	body, input, label, button {
 		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 		font-weight: 300;
 	}
@@ -72,6 +72,13 @@
 		font-weight: normal; 
 		font-size: 30px;
 	}
+	h3{
+		font-weight: normal;
+	}
+	h3 button { background: #aaa; padding: 10px; font-size: 16px; color: white;}
+	h3 .selected {
+		background: #833;
+	}
 
 	input { 
 		height: 20px; 
@@ -95,10 +102,11 @@
 	}
 	</style>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+	<script src="app.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="container" ng-controller="MadlibsController">
 
 	<div class="header">
 		<div class="smiley"><img src="mad-lib-happy-face.png"></div>
@@ -111,30 +119,31 @@
 
 	<div class="inputSec">
 		<h2>Provide the following words:</h2>
+		<h3>Are you male/female: <button ng-click="changeGender('m')" ng-class="gender == 'm' ? 'selected' : '' ">Male</button> OR <button ng-click="changeGender('f')" ng-class="gender == 'f' ? 'selected' : '' ">Female</button></h3>
 		<div class="inputs">
 			<div>
-				<input placeholder="male name" ng-model="male_name" ng-init="male_name = 'male name'"/>
-				<input placeholder="Job Title" ng-model="job_title" ng-init="job_title = 'job title'"/>
-				<input placeholder="Tedious task" ng-model="tedious_task" ng-init="tedious_task = 'tedious task'"/>
+				<input placeholder="person name" ng-model="person_name"/>
+				<input placeholder="Job Title" ng-model="job_title"/>
+				<input placeholder="Tedious task" ng-model="tedious_task"/>
 			</div>
 			<div>
-				<input placeholder="Dirty task" ng-model="dirty_task" ng-init="dirty_task = 'dirty task'"/>
-				<input placeholder="Celebrity" ng-model="celebrity" ng-init="celebrity =  'celebrity'"/>
-				<input placeholder="Useless Skill" ng-model="useless_skill" ng-init="useless_skill = 'useless skill'"/>
+				<input placeholder="Dirty task" ng-model="dirty_task"/>
+				<input placeholder="Celebrity" ng-model="celebrity"/>
+				<input placeholder="Useless Skill" ng-model="useless_skill"/>
 			</div>
 			<div>
-				<input placeholder="Obnoxious celebrity" ng-model="obnoxious_celebrity" ng-init="obnoxious_celebrity = 'obnoxious celebrity'"/>
-				<input placeholder="Huge number" ng-model="huge_number" ng-init="huge_number = 'huge number'"/>
-				<input placeholder="Adjective" ng-model="adjective" ng-init="adjective =  'adjective'"/>
+				<input placeholder="Obnoxious celebrity" ng-model="obnoxious_celebrity"/>
+				<input placeholder="Huge number" ng-model="huge_number"/>
+				<input placeholder="Adjective" ng-model="adjective"/>
 			</div>
 		</div>
 	</div>
 	<div style="clear:both;"></div>
 
 	<div class="paragraphSec">
-		<p><span>{{male_name}}</span> was a <span>{{job_title}}</span> who loved technology. Although he loved parts of her job, he absolutely hated  <span>{{tedious_task}}</span> and <span>{{dirty_task}}</span>. So, {{male_name}} met with his life mentor <span>{{celebrity}}</span> who told him to learn how to <span>{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{useless_skill}}</span> so he studied programming instead.</p>
-		 
-		<p>What a great decision! With his new skills, <span>{{male_name}}</span> built a(n) <span>{{adjective}}</span> robot named <span>{{obnoxious_celebrity}}</span> that not only loved <span>{{dirty_task}}</span> but did it <span>{{huge_number}}</span> faster.</p>
+		<p><span>{{person_name}}</span> was a <span>{{job_title}}</span> who loved technology. Although {{gender=='f' ? 's' : ''}}he loved parts of her job, {{gender=='f' ? 's' : ''}}he absolutely hated  <span>{{tedious_task}}</span> and <span>{{dirty_task}}</span>. So, {{person_name}} met with {{gender=='f' ? 'her' : 'his'}} life mentor <span>{{celebrity}}</span> who told {{gender=='f' ? 'her' : 'him'}} to learn how to <span>{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{useless_skill}}</span> so {{gender=='f' ? 's' : ''}}he studied programming instead.</p>
+		<br />
+		<p>What a great decision! With {{gender=='f' ? 'her' : 'his'}} new skills, <span>{{person_name}}</span> built a(n) <span>{{adjective}}</span> robot named <span>{{obnoxious_celebrity}}</span> that not only loved <span>{{dirty_task}}</span> but did it <span>{{huge_number}}</span> faster.</p>
 	</div>
 
 </div>

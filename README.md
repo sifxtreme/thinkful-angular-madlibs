@@ -1,4 +1,4 @@
-thinkful-angular-lesson-2
+thinkful-angular-madlibs
 =========================
 
 AngularJS Course on Thinkful - MadLibs

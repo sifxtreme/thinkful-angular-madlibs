@@ -75,7 +75,7 @@
 	h3{
 		font-weight: normal;
 	}
-	h3 button { background: #aaa; padding: 10px; font-size: 16px; color: white;}
+	h3 a { background: #aaa; padding: 10px; font-size: 16px; color: white; display:inline-block; cursor: pointer}
 	h3 .selected {
 		background: #833;
 	}
@@ -139,10 +139,10 @@
 	<div style="clear:both;"></div>
 
 	<section class="inputView" ng-show="showInputs">
-		<form name="madlibInputs" ng-submit="submitted=true; createStory()" novalidate>
+		<form name="madlibInputs" ng-submit="createStory()" novalidate>
 		<div class="inputSec">
 			<h2>Provide the following words:</h2>
-			<h3>Are you male/female: <button ng-click="changeGender('m')" ng-class="gender == 'm' ? 'selected' : '' ">Male</button> OR <button ng-click="changeGender('f')" ng-class="gender == 'f' ? 'selected' : '' ">Female</button></h3>
+			<h3>Are you male/female: <a ng-click="changeGender('m')" ng-class="gender == 'm' ? 'selected' : '' ">Male</a> OR <a ng-click="changeGender('f')" ng-class="gender == 'f' ? 'selected' : '' ">Female</a></h3>
 			<div class="inputs">
 				<div>
 					<input name="person_name" placeholder="person name" ng-model="person_name" required/>

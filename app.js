@@ -1,7 +1,7 @@
 var myApp = angular.module('madlibsApp', []);
 
 myApp.controller('MadlibsController', ['$scope', function($scope){
-
+	$scope.submitted = false;
 	$scope.showInputs = true;
 	$scope.gender = 'm';
 
@@ -10,6 +10,7 @@ myApp.controller('MadlibsController', ['$scope', function($scope){
 	};
 
 	$scope.createStory = function(){
+		$scope.submitted = true
 		if($scope.madlibInputs.$valid){
 			$scope.showInputs = false;
 		}

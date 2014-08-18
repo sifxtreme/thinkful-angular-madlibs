@@ -122,6 +122,51 @@
 	.paragraphSec span{
 		text-decoration: underline;
 	}
+
+.input-view-show-animation.ng-hide-add,
+.input-view-show-animation.ng-hide-remove {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+.input-view-show-animation.ng-hide {
+  opacity:0;
+}
+
+.results-view-show-animation.ng-hide-add,
+.results-view-show-animation.ng-hide-remove {
+  -webkit-transition:1.0s linear all 0.5s;
+  transition:1.0s linear all 0.5s;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+.results-view-show-animation.ng-hide {
+  opacity:0;
+}
+
+.paragraphSec span.ng-hide-add,
+.paragraphSec span.ng-hide-remove {
+	-webkit-transition:1.5s linear all 0.5s;
+  transition:1.5s linear all 0.5s;
+  /*color: black;*/
+
+  /* remember to add this */
+  display:inline-block!important;
+  opacity:1;
+}
+.paragraphSec span.ng-hide {
+	text-decoration: none;
+  opacity:0.5;
+  color: #f00;
+}
+
+
+
 	</style>
 
 </head>
@@ -138,7 +183,7 @@
 	</div>
 	<div style="clear:both;"></div>
 
-	<section class="inputView" ng-show="showInputs">
+	<section class="inputView input-view-show-animation" ng-hide="!showInputs">
 		<form name="madlibInputs" ng-submit="createStory()" novalidate>
 		<div class="inputSec">
 			<h2>Provide the following words:</h2>
@@ -180,11 +225,11 @@
 		<div style="clear:both;"></div>
 	</section>
 
-	<section class="resultsView" ng-show="!showInputs">
+	<section class="resultsView results-view-show-animation" ng-hide="showInputs">
 		<div class="paragraphSec">
-			<p><span>{{person_name}}</span> was a <span>{{job_title}}</span> who loved technology. Although {{gender=='f' ? 's' : ''}}he loved parts of her job, {{gender=='f' ? 's' : ''}}he absolutely hated  <span>{{tedious_task}}</span> and <span>{{dirty_task}}</span>. So, {{person_name}} met with {{gender=='f' ? 'her' : 'his'}} life mentor <span>{{celebrity}}</span> who told {{gender=='f' ? 'her' : 'him'}} to learn how to <span>{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{useless_skill}}</span> so {{gender=='f' ? 's' : ''}}he studied programming instead.</p>
+			<p><span ng-hide="showInputs">{{person_name}}</span> was a <span ng-hide="showInputs">{{job_title}}</span> who loved technology. Although {{gender=='f' ? 's' : ''}}he loved parts of her job, {{gender=='f' ? 's' : ''}}he absolutely hated  <span ng-hide="showInputs">{{tedious_task}}</span> and <span ng-hide="showInputs">{{dirty_task}}</span>. So, {{person_name}} met with {{gender=='f' ? 'her' : 'his'}} life mentor <span ng-hide="showInputs">{{celebrity}}</span> who told {{gender=='f' ? 'her' : 'him'}} to learn how to <span ng-hide="showInputs">{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span ng-hide="showInputs">{{useless_skill}}</span> so {{gender=='f' ? 's' : ''}}he studied programming instead.</p>
 			<br />
-			<p>What a great decision! With {{gender=='f' ? 'her' : 'his'}} new skills, <span>{{person_name}}</span> built a(n) <span>{{adjective}}</span> robot named <span>{{obnoxious_celebrity}}</span> that not only loved <span>{{dirty_task}}</span> but did it <span>{{huge_number}}</span> times faster.</p>
+			<p>What a great decision! With {{gender=='f' ? 'her' : 'his'}} new skills, <span ng-hide="showInputs">{{person_name}}</span> built a(n) <span ng-hide="showInputs">{{adjective}}</span> robot named <span ng-hide="showInputs">{{obnoxious_celebrity}}</span> that not only loved <span ng-hide="showInputs">{{dirty_task}}</span> but did it <span ng-hide="showInputs">{{huge_number}}</span> times faster.</p>
 			<button ng-click="changeLibs()" class="madlibButton">Start Over</button>
 		</div>
 		<div style="clear:both;"></div>
@@ -194,6 +239,7 @@
 
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-var myApp = angular.module('madlibsApp', []);
+var myApp = angular.module('madlibsApp', ['ngAnimate']);
 
 myApp.controller('MadlibsController', ['$scope', function($scope){
 	$scope.submitted = false;
